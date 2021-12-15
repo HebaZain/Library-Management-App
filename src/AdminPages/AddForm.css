@@ -1,0 +1,40 @@
+.Add-Container{
+    margin-left: 520px;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    text-align: center;
+    width: 350px;
+    height: auto;
+    border-radius: 30px;
+    margin-top: 70px;
+    background-color:burlywood;
+}
+.add-form{
+    text-align: left;
+    padding-left: 50px;
+
+}
+input{
+    border-radius: 2px;
+    background-color:navajowhite;
+    border:navajowhite;
+    width: 185px;
+    height: 25px;
+    margin: 5px;
+    display: inline;
+}
+input:focus{
+    outline:none;
+}
+button{
+    border-radius: 10px;
+    text-align: center;
+    background-color:navajowhite;
+    border-color: navajowhite;
+    width: 120px;
+    height: 40px;
+    margin: 5px;
+    margin-top: 10px;
+    margin-left: 50px;
+}
