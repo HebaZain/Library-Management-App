@@ -1,13 +1,18 @@
 import React , {Component} from "react";
 import './AddForm.css';
 class AddForm extends Component{
-        state={
+    constructor(){
+        super()
+        this.state={
+            bookDetails:{
                     Id : null,
                     Title: null,
                     Publisher: null,
                     Category: null,
                     Price: null
+            }
         };
+    }
     handleChange =(e) =>{
          e.preventDefault()
          const name=e.target.name;
@@ -20,16 +25,16 @@ class AddForm extends Component{
         let response= await fetch('http://localhost:8080/libraryManApp/addBook',{
             method :'post',
              body:{
-                Id : this.state.bookDetails.Id,
-                Title: this.state.bookDetails.Title,
-                Publisher: this.state.bookDetails.Publisher,
-                Category: this.state.bookDetails.Category,
-                Price: this.state.bookDetails.Price
+                Id : this.state.Id,
+                Title: this.state.Title,
+                Publisher: this.state.Publisher,
+                Category: this.state.Category,
+                Price: this.state.Price
             }  
         })
          console.log(response);
     } 
-   async componentDidMount() {
+    componentDidMount() {
         document.body.style.backgroundImage="none";
         document.body.style.backgroundColor="navajowhite";
     }
@@ -37,7 +42,7 @@ class AddForm extends Component{
         return(
             <div className="Add-Container">
                 <h2>ADD NEW BOOK</h2>
-                <form className="add-form" >
+                <form className="add-form"  onSubmit={this.handleClick}>
                     <div className="id">
                         <label >Book ID:</label><br></br>
                         <input  
@@ -45,7 +50,7 @@ class AddForm extends Component{
                         id="id"
                         name="id"
                         placeholder='input book id' 
-                        value={this.state.Id}
+                        value={this.state.bookDetails.Id}
                         onChange={this.handleChange} />
                     </div> 
 
@@ -56,7 +61,7 @@ class AddForm extends Component{
                         id="title" 
                         name="title"
                         placeholder='input book title' 
-                        value={this.state.Title}
+                        value={this.state.bookDetails.Title}
                         onChange={this.handleChange}/>
                     </div>
 
@@ -66,7 +71,7 @@ class AddForm extends Component{
                         type='text' 
                         id="publisher" 
                         placeholder='input publisher name'
-                        value={this.state.Publisher} 
+                        value={this.state.bookDetails.Publisher} 
                         onChange={this.handleChange}/>
                     </div>
 
@@ -75,7 +80,7 @@ class AddForm extends Component{
                         <input  
                         type='text' id="category"
                         placeholder='input category'
-                        value={this.state.Category}
+                        value={this.state.bookDetails.Category}
                         onChange={this.handleChange}/>
                     </div>
 
@@ -85,11 +90,11 @@ class AddForm extends Component{
                         type='text' 
                         id="price" 
                         placeholder='input price' 
-                        value={this.state.Price}
+                        value={this.state.bookDetails.Price}
                         onChange={this.handleChange} />
                     </div>  
                     
-                    <button className="addBook" onClick={this.handleClick} >ADD</button>
+                    <button className="addBook">ADD</button>
                 </form>
             </div>
         )

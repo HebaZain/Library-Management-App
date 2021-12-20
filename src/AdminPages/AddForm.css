@@ -4,11 +4,12 @@
     padding-bottom: 5px;
     padding-left: 15px;
     text-align: center;
-    width: 350px;
+    width: 370px;
     height: auto;
     border-radius: 30px;
     margin-top: 70px;
     background-color:burlywood;
+    padding-top: 30px;
 }
 .add-form{
     text-align: left;
