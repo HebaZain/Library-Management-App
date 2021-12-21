@@ -20,8 +20,8 @@ function App() {
       <Route path='/addBooks' exact element={<AddForm />} />
        
       </Routes>  */}
-      {/* <AddForm />  */}
-      <DisplayBooks />
+      <AddForm />
+      {/* <DisplayBooks /> */}
     </div>
     </BrowserRouter>
   );

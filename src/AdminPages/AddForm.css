@@ -27,6 +27,7 @@ input{
 }
 input:focus{
     outline:none;
+    color: navajowhite;
 }
 .addBook{
     border-radius: 10px;

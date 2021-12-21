@@ -21,28 +21,37 @@ class AddForm extends Component{
          });
      } 
      handleClick = async (e) => {
-        e.preventDefault();
-        let response= await fetch('http://localhost:8080/libraryManApp/addBook',{
+         e.preventDefault()
+        let response= await fetch('http://localhost:8080/libraryManApp-0.0.1-SNAPSHOT/addBook',{
             method :'post',
              body:{
-                Id : this.state.Id,
-                Title: this.state.Title,
-                Publisher: this.state.Publisher,
-                Category: this.state.Category,
-                Price: this.state.Price
+                Id : this.state.bookDetails.Id,
+                Title: this.state.bookDetails.Title,
+                Publisher: this.state.bookDetails.Publisher,
+                Category: this.state.bookDetails.Category,
+                Price: this.state.bookDetails.Price
             }  
-        })
+        }) 
          console.log(response);
     } 
     componentDidMount() {
         document.body.style.backgroundImage="none";
         document.body.style.backgroundColor="navajowhite";
     }
+    
     render(){
+        /* const express = require('express');
+        const cros =require('cros'); */
+        /* let express = require('express');
+        const app=express();
+         app.use(cors());  
+        const cors = require('cors');
+        app.use(cors({ origin: true })); */
+        //
         return(
             <div className="Add-Container">
                 <h2>ADD NEW BOOK</h2>
-                <form className="add-form"  onSubmit={this.handleClick}>
+                <form className="add-form"  onSubmit={this.handleClick} method="post" action="addBook">
                     <div className="id">
                         <label >Book ID:</label><br></br>
                         <input  
